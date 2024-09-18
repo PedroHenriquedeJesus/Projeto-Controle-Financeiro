@@ -1,8 +1,8 @@
 package com.pk.api_controle_financeiro.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 public class Lancamento {
     @Id
@@ -14,7 +14,10 @@ public class Lancamento {
     private String tipo;
     private double valor;
     private String categoria;
-    //private Grupo grupo;
+
+    @OneToMany
+    @JoinColumn
+    private Set<Grupo> grupo;
 
 
     public Lancamento(Long id, String nome, String descricao, String data, String tipo, double valor, String categoria) {
