@@ -2,6 +2,8 @@ package com.pk.api_controle_financeiro.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "TABELA_GRUPO")
 public class Grupo {
@@ -10,6 +12,10 @@ public class Grupo {
     private Long id;
     private String nome;
     private String descricao;
+
+    @OneToMany
+    @JoinColumn
+    private Set<Meta> meta;
 
     public Grupo() {
     }
