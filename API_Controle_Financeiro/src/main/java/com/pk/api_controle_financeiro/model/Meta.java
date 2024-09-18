@@ -11,6 +11,7 @@ public class Meta {
     private String tipo;
     private double valor;
 
+
     public Meta() {
     }
 
