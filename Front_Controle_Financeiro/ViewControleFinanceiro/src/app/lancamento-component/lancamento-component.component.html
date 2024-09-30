@@ -1,10 +1,46 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 600px;">
   <form>
-    <p-card header="Cadastro De Lançamento" [style]="{width:'1000px', height: '500px'}">
+    <p-card header="Cadastro De Lançamento" [style]="{width:'1000px', height: '600px'}">
+
       <p-floatLabel>
-        <input pInputText id="username" />
-        <label for="username">Username</label>
+        <input pInputText id="id" type="number" />
+        <label for="id">ID</label>
       </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="nome" />
+        <label for="nome">Nome</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <textarea pInputTextarea id="descricao" rows="3"></textarea>
+        <label for="descricao">Descrição</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="data" type="date" />
+        <label for="data">Data</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="tipo" />
+        <label for="tipo">Tipo</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="valor" type="number" />
+        <label for="valor">Valor</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="categoria" />
+        <label for="categoria">Categoria</label>
+      </p-floatLabel>
+
+      <div style="margin-top: 20px;">
+        <p-button label="Salvar" />
+      </div>
+
     </p-card>
-  </form>
+    </form>
 </div>
