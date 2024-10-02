@@ -1,45 +1,43 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 600px;">
-  <form>
-    <p-card header="Cadastro De Pessoas" [style]="{width:'700px', height: '500px'}">
+<div style="display: flex; justify-content: center; align-items: center; height: auto;">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <p-card header="Cadastro De Pessoas" [ngClass]="{'error-card': form.submitted && !form.valid}" [style]="{width:'700px'}">
+      <div class="p-fluid p-card-body">
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !nome}">
+          <p-floatLabel>
+            <input pInputText id="nome" [(ngModel)]="nome" name="nome" required style="width: 100%;" />
+            <label for="nome">Nome</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !nome" class="p-error">Nome é obrigatório</small>
+        </div>
 
-      <p-floatLabel>
-        <input pInputText id="nome" style="width: 100%;" />
-        <label for="nome">Nome</label>
-      </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !CPF}" style="margin-top: 40px">
+          <p-floatLabel>
+            <p-inputMask mask="999.999.999-99" id="CPF" [(ngModel)]="CPF" name="CPF" required />
+            <label for="CPF">CPF</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !CPF" class="p-error">CPF é obrigatório</small>
+        </div>
 
-      <div class="p-field" style="margin-top: 40px">
-        <p-floatLabel>
-          <p-inputMask
-            mask="999.999.999-99"
-            id="CPF"
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !email}" style="margin-top: 40px">
+          <p-floatLabel>
+            <input pInputText id="email" type="email" [(ngModel)]="email" name="email" required style="width: 100%;" />
+            <label for="email">Email</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !email" class="p-error">Email é obrigatório</small>
+        </div>
 
-          />
-          <label for="CPF">CPF</label>
-        </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !telefone}" style="margin-top: 40px">
+          <p-floatLabel>
+            <p-inputMask mask="(99) 99999-9999" id="telefone" [(ngModel)]="telefone" name="telefone" required />
+            <label for="telefone">Telefone</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !telefone" class="p-error">Telefone é obrigatório</small>
+        </div>
+
+        <div class="p-field" style="margin-top: 40px;">
+          <p-button label="Salvar" type="submit"></p-button>
+        </div>
       </div>
-
-      <div class="p-field" style="margin-top: 40px">
-        <p-floatLabel>
-          <input pInputText id="email" type="email" style="width: 100%;" />
-          <label for="email">Email</label>
-        </p-floatLabel>
-      </div>
-
-      <div class="p-field" style="margin-top: 40px">
-        <p-floatLabel>
-          <p-inputMask
-            mask="(99) 99999-9999"
-            id="telefone"
-
-          />
-          <label for="telefone">Telefone</label>
-        </p-floatLabel>
-      </div>
-
-      <div style="margin-top: 40px;">
-        <p-button label="Salvar" />
-      </div>
-
     </p-card>
   </form>
 </div>
