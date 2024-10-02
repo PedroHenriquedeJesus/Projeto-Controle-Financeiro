@@ -1,1 +1,25 @@
-<p>meta-component works!</p>
+<div style="display: flex; justify-content: center; align-items: center; height: 600px;">
+  <form>
+    <p-card header="Cadastro De Metas" [style]="{width:'700px', height: '450px'}">
+
+      <div style="margin-top: 40px">
+      <p-floatLabel>
+        <textarea pInputTextarea id="descricao" rows="3" style="height: 118px; width: 652px;"></textarea>
+        <label for="descricao">Descrição</label>
+      </p-floatLabel>
+      </div>
+
+        <div style="margin-top: 40px">
+      <p-floatLabel>
+        <input pInputText id="valor" type="number" />
+        <label for="valor">Valor</label>
+      </p-floatLabel>
+        </div>
+
+      <div style="margin-top: 40px;">
+        <p-button label="Salvar" />
+      </div>
+
+    </p-card>
+    </form>
+</div >
