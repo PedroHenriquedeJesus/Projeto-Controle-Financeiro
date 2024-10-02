@@ -1,1 +1,35 @@
-<p>pessoa-component works!</p>
+<div style="display: flex; justify-content: center; align-items: center; height: 600px;">
+  <form>
+    <p-card header="Cadastro De Pessoas" [style]="{width:'600px', height: '400px'}">
+
+      <p-floatLabel>
+        <input pInputText id="nome" />
+        <label for="nome">Nome</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <p-inputMask
+          mask="999.999.999-99"
+          id="CPF" />
+        <label for="CPF">CPF</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="email" type="email" />
+        <label for="email">Email</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <p-inputMask
+          mask="(99) 99999-9999"
+          id="telefone" />
+        <label for="telefone">Telefone</label>
+      </p-floatLabel>
+
+      <div style="margin-top: 20px;">
+        <p-button label="Salvar" />
+      </div>
+
+    </p-card>
+  </form>
+</div>

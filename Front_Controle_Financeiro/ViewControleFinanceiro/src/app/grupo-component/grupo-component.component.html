@@ -1,1 +1,38 @@
-<p>grupo-component works!</p>
+<div style="display: flex; justify-content: center; align-items: center; height: 600px;">
+  <form>
+    <p-card header="Grupos" [style]="{width:'600px', height: '300px'}">
+
+      <p-floatLabel>
+        <textarea pInputTextarea id="descricao" rows="3"></textarea>
+        <label for="descricao">Descrição</label>
+      </p-floatLabel>
+
+      <p-floatLabel>
+        <input pInputText id="valor" type="number" />
+        <label for="valor">Valor</label>
+      </p-floatLabel>
+
+<!--      <p-floatLabel>-->
+<!--        <p-dropdown-->
+<!--          [options]="grupos"-->
+<!--          [(ngModel)]="selectedGroup"-->
+<!--          optionLabel="nomeGrupo"-->
+<!--          inputId="float-label" />-->
+<!--        <label for="float-label">Select a City</label>-->
+<!--      </p-floatLabel>-->
+
+      <div style="margin-top: 20px;">
+        <p-button label="Salvar" />
+      </div>
+
+      <div style="margin-top: 20px;">
+        <p-button label="Editar" />
+      </div>
+
+      <div style="margin-top: 20px;">
+        <p-button label="Excluir" />
+      </div>
+
+    </p-card>
+  </form>
+</div >
