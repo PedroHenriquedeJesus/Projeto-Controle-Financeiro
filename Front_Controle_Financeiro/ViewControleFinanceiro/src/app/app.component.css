@@ -1,0 +1,20 @@
+.p-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.p-field {
+  margin-bottom: 40px; /* Aumenta o espaço entre os campos */
+}
+
+.p-invalid input,
+.p-invalid textarea {
+  border-color: red;
+}
+
+.p-error {
+  color: red;
+  font-size: 12px;
+}
