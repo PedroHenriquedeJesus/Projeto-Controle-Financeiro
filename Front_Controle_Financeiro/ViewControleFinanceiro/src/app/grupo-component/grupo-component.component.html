@@ -1,16 +1,18 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 600px;">
   <form>
-    <p-card header="Grupos" [style]="{width:'600px', height: '300px'}">
+    <p-card header="Grupos" [style]="{width:'700px', height: '400px'}">
 
       <p-floatLabel>
-        <textarea pInputTextarea id="descricao" rows="3"></textarea>
+        <textarea pInputTextarea id="descricao" rows="3" style="height: 118px; width: 652px;"></textarea>
         <label for="descricao">Descrição</label>
       </p-floatLabel>
 
+      <div style="margin-top: 40px">
       <p-floatLabel>
         <input pInputText id="valor" type="number" />
         <label for="valor">Valor</label>
       </p-floatLabel>
+      </div>
 
 <!--      <p-floatLabel>-->
 <!--        <p-dropdown-->
@@ -21,15 +23,15 @@
 <!--        <label for="float-label">Select a City</label>-->
 <!--      </p-floatLabel>-->
 
-      <div style="margin-top: 20px;">
+      <div style="margin-top: 40px;">
         <p-button label="Salvar" />
       </div>
 
-      <div style="margin-top: 20px;">
+      <div style="margin-top: -45px; margin-left: 100px">
         <p-button label="Editar" />
       </div>
 
-      <div style="margin-top: 20px;">
+      <div style="margin-top: -45px; margin-left: 200px">
         <p-button label="Excluir" />
       </div>
 

@@ -1,32 +1,42 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 600px;">
   <form>
-    <p-card header="Cadastro De Pessoas" [style]="{width:'600px', height: '400px'}">
+    <p-card header="Cadastro De Pessoas" [style]="{width:'700px', height: '500px'}">
 
       <p-floatLabel>
-        <input pInputText id="nome" />
+        <input pInputText id="nome" style="width: 100%;" />
         <label for="nome">Nome</label>
       </p-floatLabel>
 
-      <p-floatLabel>
-        <p-inputMask
-          mask="999.999.999-99"
-          id="CPF" />
-        <label for="CPF">CPF</label>
-      </p-floatLabel>
+      <div class="p-field" style="margin-top: 40px">
+        <p-floatLabel>
+          <p-inputMask
+            mask="999.999.999-99"
+            id="CPF"
 
-      <p-floatLabel>
-        <input pInputText id="email" type="email" />
-        <label for="email">Email</label>
-      </p-floatLabel>
+          />
+          <label for="CPF">CPF</label>
+        </p-floatLabel>
+      </div>
 
-      <p-floatLabel>
-        <p-inputMask
-          mask="(99) 99999-9999"
-          id="telefone" />
-        <label for="telefone">Telefone</label>
-      </p-floatLabel>
+      <div class="p-field" style="margin-top: 40px">
+        <p-floatLabel>
+          <input pInputText id="email" type="email" style="width: 100%;" />
+          <label for="email">Email</label>
+        </p-floatLabel>
+      </div>
 
-      <div style="margin-top: 20px;">
+      <div class="p-field" style="margin-top: 40px">
+        <p-floatLabel>
+          <p-inputMask
+            mask="(99) 99999-9999"
+            id="telefone"
+
+          />
+          <label for="telefone">Telefone</label>
+        </p-floatLabel>
+      </div>
+
+      <div style="margin-top: 40px;">
         <p-button label="Salvar" />
       </div>
 
