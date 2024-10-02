@@ -1,46 +1,59 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 600px;">
-  <form>
-    <p-card header="Cadastro De Lançamento" [style]="{width:'1000px', height: '600px'}">
+<div style="display: flex; justify-content: center; align-items: center; min-height: 680px;">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <p-card header="Cadastro De Lançamento" [style]="{width:'1000px'}">
+      <div class="p-fluid p-card-body">
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !nome}">
+          <p-floatLabel>
+            <input pInputText id="nome" [(ngModel)]="nome" name="nome" required />
+            <label for="nome">Nome</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !nome" class="p-error">Nome é obrigatório</small>
+        </div>
 
-      <p-floatLabel>
-        <input pInputText id="id" type="number" />
-        <label for="id">ID</label>
-      </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !descricao}" style="margin-top: 40px">
+          <p-floatLabel>
+            <textarea pInputTextarea id="descricao" rows="3" [(ngModel)]="descricao" name="descricao" required></textarea>
+            <label for="descricao">Descrição</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !descricao" class="p-error">Descrição é obrigatória</small>
+        </div>
 
-      <p-floatLabel>
-        <input pInputText id="nome" />
-        <label for="nome">Nome</label>
-      </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !data}" style="margin-top: 40px">
+          <p-floatLabel>
+            <input pInputText id="data" type="date" [(ngModel)]="data" name="data" required />
+            <label for="data">Data</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !data" class="p-error">Data é obrigatória</small>
+        </div>
 
-      <p-floatLabel>
-        <textarea pInputTextarea id="descricao" rows="3"></textarea>
-        <label for="descricao">Descrição</label>
-      </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !tipo}" style="margin-top: 40px">
+          <p-floatLabel>
+            <input pInputText id="tipo" [(ngModel)]="tipo" name="tipo" required />
+            <label for="tipo">Tipo</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !tipo" class="p-error">Tipo é obrigatório</small>
+        </div>
 
-      <p-floatLabel>
-        <input pInputText id="data" type="date" />
-        <label for="data">Data</label>
-      </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !valor}" style="margin-top: 40px">
+          <p-floatLabel>
+            <input pInputText id="valor" type="number" [(ngModel)]="valor" name="valor" required />
+            <label for="valor">Valor</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !valor" class="p-error">Valor é obrigatório</small>
+        </div>
 
-      <p-floatLabel>
-        <input pInputText id="tipo" />
-        <label for="tipo">Tipo</label>
-      </p-floatLabel>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !categoria}" style="margin-top: 40px">
+          <p-floatLabel>
+            <input pInputText id="categoria" [(ngModel)]="categoria" name="categoria" required />
+            <label for="categoria">Categoria</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !categoria" class="p-error">Categoria é obrigatória</small>
+        </div>
 
-      <p-floatLabel>
-        <input pInputText id="valor" type="number" />
-        <label for="valor">Valor</label>
-      </p-floatLabel>
-
-      <p-floatLabel>
-        <input pInputText id="categoria" />
-        <label for="categoria">Categoria</label>
-      </p-floatLabel>
-
-      <div style="margin-top: 20px;">
-        <p-button label="Salvar" />
+        <div class="p-field" style="margin-top: 40px;">
+          <p-button label="Salvar" type="submit"></p-button>
+        </div>
       </div>
-
     </p-card>
-    </form>
+  </form>
 </div>
