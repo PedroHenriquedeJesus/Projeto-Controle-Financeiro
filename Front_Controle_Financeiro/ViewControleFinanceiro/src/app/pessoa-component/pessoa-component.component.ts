@@ -8,6 +8,10 @@ import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputMaskModule } from 'primeng/inputmask';
 
+//para services
+import { HttpClientModule } from '@angular/common/http';
+import {PessoaService} from "../Services/pessoaService/pessoa.service";
+
 @Component({
   selector: 'app-pessoa-component',
   standalone: true,
@@ -20,33 +24,41 @@ import { InputMaskModule } from 'primeng/inputmask';
       ButtonModule,
       FloatLabelModule,
       InputMaskModule,
+      HttpClientModule
     ],
   templateUrl: './pessoa-component.component.html',
   styleUrl: './pessoa-component.component.css'
 })
 export class PessoaComponentComponent {
-
+  id: number = 0;
   nome: string = '';
   CPF: string = '';
   email: string = '';
   telefone: string = '';
 
+  constructor(private pessoaService: PessoaService) {}
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      console.log('Formulário enviado', {
+      const pessoa = {
+        id: this.id,
         nome: this.nome,
         CPF: this.CPF,
         email: this.email,
         telefone: this.telefone
-      });
+      };
 
-      // Limpar os campos do formulário
-      this.nome = '';
-      this.CPF = '';
-      this.email = '';
-      this.telefone = '';
-      form.resetForm();
+      this.pessoaService.enviarDados(pessoa).subscribe(response => {
+        console.log('Dados enviados com sucesso', response);
+        // Limpar os campos do formulário
+        this.nome = '';
+        this.CPF = '';
+        this.email = '';
+        this.telefone = '';
+        form.resetForm();
+      }, error => {
+        console.error('Erro ao enviar dados', error);
+      });
     } else {
       console.log('Formulário inválido');
     }
