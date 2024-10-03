@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PessoaService {
 
-  private apiUrl = 'http://seu-backend-api.com/pessoas'; // Substitua pela URL do seu backend
+  private apiUrl = 'http://localhost:8080/api/pessoas'; // Substitua pela URL do seu backend
 
   constructor(private http: HttpClient) { }
 

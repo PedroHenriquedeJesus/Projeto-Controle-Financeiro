@@ -32,7 +32,7 @@ import {PessoaService} from "../Services/pessoaService/pessoa.service";
 export class PessoaComponentComponent {
   id: number = 0;
   nome: string = '';
-  CPF: string = '';
+  cpf: string = '';
   email: string = '';
   telefone: string = '';
 
@@ -43,7 +43,7 @@ export class PessoaComponentComponent {
       const pessoa = {
         id: this.id,
         nome: this.nome,
-        CPF: this.CPF,
+        cpf: this.cpf,
         email: this.email,
         telefone: this.telefone
       };
@@ -52,7 +52,7 @@ export class PessoaComponentComponent {
         console.log('Dados enviados com sucesso', response);
         // Limpar os campos do formulário
         this.nome = '';
-        this.CPF = '';
+        this.cpf = '';
         this.email = '';
         this.telefone = '';
         form.resetForm();
