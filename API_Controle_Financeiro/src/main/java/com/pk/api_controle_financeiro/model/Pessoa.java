@@ -3,15 +3,23 @@ package com.pk.api_controle_financeiro.model;
 import jakarta.persistence.*;
 
 @Entity
-//@Table(name = "SENAI_FORMULARIO")
+@Table(name = "pessoa")
 
 public class Pessoa {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, length = 100)
     private String nome;
+
+    @Column(nullable = false, unique = true, length = 14)
     private String CPF;
+
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
+
+    @Column(nullable = false, length = 15)
     private String telefone;
 
     public Pessoa(Long id, String nome, String CPF, String email, String telefone) {
