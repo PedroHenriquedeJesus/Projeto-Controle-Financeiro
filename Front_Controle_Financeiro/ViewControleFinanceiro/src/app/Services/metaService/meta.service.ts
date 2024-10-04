@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PessoaService {
+export class MetaService {
 
-  private apiUrl = 'http://localhost:8080/api/pessoas';
+  private apiUrl = 'http://localhost:8080/api/metas';
 
   constructor(private http: HttpClient) { }
 
-  enviarDados(pessoa: any): Observable<any> {
-    return this.http.post(this.apiUrl, pessoa);
+  enviarDados(meta: any): Observable<any> {
+    return this.http.post(this.apiUrl, meta);
   }
 }
