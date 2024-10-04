@@ -2,6 +2,13 @@
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <p-card header="Grupos" [ngClass]="{'error-card': form.submitted && !form.valid}" [style]="{width:'700px'}">
       <div class="p-fluid p-card-body">
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !nome}">
+          <p-floatLabel>
+            <input pInputText id="nome" [(ngModel)]="nome" name="nome" required style="width: 100%;" />
+            <label for="nome">Nome</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !nome" class="p-error">Nome é obrigatório</small>
+        </div>
         <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !descricao}">
           <p-floatLabel>
             <textarea pInputTextarea id="descricao" rows="3" [(ngModel)]="descricao" name="descricao" required style="height: 118px; width: 652px;"></textarea>
@@ -17,6 +24,14 @@
           </p-floatLabel>
           <small *ngIf="form.submitted && !valor" class="p-error">Valor é obrigatório</small>
         </div>
+        <div>
+        <p-dropdown
+          [options]="pessoaList"
+          [(ngModel)]="selectedPessoa"
+          optionLabel="nome"
+          placeholder="Pessoa"
+          name="pessoa"/>
+      </div>
 
         <div class="p-field" style="margin-top: 40px;">
           <p-button label="Salvar" type="submit"></p-button>

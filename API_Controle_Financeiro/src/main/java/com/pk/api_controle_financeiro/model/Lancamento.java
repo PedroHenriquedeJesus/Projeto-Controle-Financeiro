@@ -25,13 +25,18 @@ public class Lancamento {
     @Column(nullable = false)
     private LocalDate data;
 
+    @ManyToOne
+    @JoinColumn(name = "grupo_id", nullable = false)
+    private Grupo grupo;
+
     @Enumerated(EnumType.STRING)
     private TipoLancamento tipo;
 
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
-    public Lancamento(Long id, String nome, String descricao, double valor, LocalDate data, TipoLancamento tipo, Categoria categoria) {
+
+    public Lancamento(Long id, String nome, String descricao, double valor, LocalDate data, TipoLancamento tipo, Categoria categoria, Grupo grupo) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -39,6 +44,7 @@ public class Lancamento {
         this.data = data;
         this.tipo = tipo;
         this.categoria = categoria;
+        this.grupo = grupo;
     }
 
     public Lancamento() {
@@ -100,6 +106,13 @@ public class Lancamento {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
 
     @Override
     public String toString() {
@@ -111,6 +124,7 @@ public class Lancamento {
                 ", data=" + data +
                 ", tipo=" + tipo +
                 ", categoria=" + categoria +
+                ", grupo=" + grupo +
                 '}';
 
     }
