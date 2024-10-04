@@ -1,0 +1,32 @@
+<div>
+<p-table  [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>E-mail</th>
+      <th style="padding-left: 70px;">Telefone</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{ product.nome }}</td>
+      <td>{{ product.CPF }}</td>
+      <td>{{ product.email }}</td>
+      <td>{{ product.telefone }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>
+
+<div style="margin-top: 775px; margin-left: 1600px">
+  <p-button label="Salvar" />
+</div>
+
+<div style="margin-top: -45px; margin-left: 1800px">
+  <p-button label="Editar" />
+</div>
+
+<div style="margin-top: -44px; margin-left: 1698px">
+  <p-button label="Excluir" />
+</div>
