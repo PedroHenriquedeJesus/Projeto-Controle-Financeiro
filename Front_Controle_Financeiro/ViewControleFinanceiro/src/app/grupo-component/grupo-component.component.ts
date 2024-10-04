@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {ListPessoaService} from '../Services/grupoService/list-pessoa.service';
 
 import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grupo-component',
@@ -38,8 +39,10 @@ export class GrupoComponentComponent implements OnInit{
   valor: number | null = null;
   nome: string = '';
 
-  constructor(private listPessoaService:ListPessoaService){}
-
+  constructor(private listPessoaService:ListPessoaService, private router: Router){}
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
   ngOnInit(): void {
       this.pegarTodasPessoas();
     }

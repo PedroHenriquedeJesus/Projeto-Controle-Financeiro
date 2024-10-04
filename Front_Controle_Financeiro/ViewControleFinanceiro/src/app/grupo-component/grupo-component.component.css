@@ -1,0 +1,11 @@
+.entity-page {
+  position: relative;
+}
+
+.back-home-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  z-index: 1000;
+}

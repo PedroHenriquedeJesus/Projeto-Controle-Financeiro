@@ -7,6 +7,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputMaskModule } from 'primeng/inputmask';
+import { Router } from '@angular/router';
 
 //para services
 import { HttpClientModule } from '@angular/common/http';
@@ -36,7 +37,10 @@ export class PessoaComponentComponent {
   email: string = '';
   telefone: string = '';
 
-  constructor(private pessoaService: PessoaService) {}
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
+  constructor(private pessoaService: PessoaService,private router: Router) {}
 
   onSubmit(form: NgForm) {
     if (form.valid) {

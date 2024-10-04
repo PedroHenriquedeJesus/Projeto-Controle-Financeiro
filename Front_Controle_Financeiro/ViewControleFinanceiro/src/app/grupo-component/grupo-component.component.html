@@ -1,3 +1,7 @@
+<div class="entity-page">
+  <div class="back-home-button">
+    <p-button label="Voltar para Home" icon="pi pi-home" styleClass="p-button-secondary" (click)="navigateToHome()"></p-button>
+  </div>
 <div style="display: flex; justify-content: center; align-items: center; height: auto;">
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <p-card header="Grupos" [ngClass]="{'error-card': form.submitted && !form.valid}" [style]="{width:'700px'}">
@@ -39,4 +43,5 @@
       </div>
     </p-card>
   </form>
+</div>
 </div>

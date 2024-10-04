@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { Router } from '@angular/router';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -32,8 +33,10 @@ export class MetaComponentComponent {
   descricao: string = '';
   valor: number | null = null;
 
-  constructor(private metaService: MetaService) {}
-
+  constructor(private metaService: MetaService, private router: Router) {}
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
   onSubmit(form: NgForm) {
     if (form.valid) {
       const meta = {

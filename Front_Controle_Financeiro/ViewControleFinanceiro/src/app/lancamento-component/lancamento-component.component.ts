@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lancamento-component',
@@ -23,6 +24,10 @@ import { FloatLabelModule } from 'primeng/floatlabel';
   styleUrls: ['./lancamento-component.component.css']
 })
 export class LancamentoComponentComponent {
+  constructor(private router: Router) {}
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
   nome: string = '';
   descricao: string = '';
   data: string = '';
