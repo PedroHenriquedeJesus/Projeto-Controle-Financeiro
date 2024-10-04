@@ -18,3 +18,8 @@
   color: red;
   font-size: 12px;
 }
+
+.error-card {
+  height: auto !important;
+  transition: height 0.3s ease-in-out;
+}

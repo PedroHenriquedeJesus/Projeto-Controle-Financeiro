@@ -14,19 +14,19 @@ public class PessoaService {
     @Autowired
     private IPessoaRepository pessoaRepository;
 
-    public Pessoa save(Pessoa pessoa) {
+    public Pessoa salvar(Pessoa pessoa) {
         return pessoaRepository.save(pessoa);
     }
 
-    public Optional<Pessoa> findById(Long id) {
+    public Optional<Pessoa> buscarPorId(Long id) {
         return pessoaRepository.findById(id);
     }
 
-    public List<Pessoa> findAll() {
+    public List<Pessoa> buscarTodas() {
         return pessoaRepository.findAll();
     }
 
-    public void deleteById(Long id) {
+    public void excluir(Long id) {
         pessoaRepository.deleteById(id);
     }
 }

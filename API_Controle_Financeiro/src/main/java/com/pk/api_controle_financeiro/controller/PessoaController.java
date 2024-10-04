@@ -9,54 +9,35 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/pessoas")
+@RequestMapping("/api/pessoas")
 public class PessoaController {
 
     @Autowired
     private PessoaService pessoaService;
 
     @PostMapping
-    public ResponseEntity<Pessoa> createPessoa(@RequestBody Pessoa pessoa) {
-        Pessoa savedPessoa = pessoaService.save(pessoa);
-        return ResponseEntity.ok(savedPessoa);
+    public ResponseEntity<Pessoa> criarPessoa(@RequestBody Pessoa pessoa) {
+        Pessoa novaPessoa = pessoaService.salvar(pessoa);
+        return ResponseEntity.ok(novaPessoa);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pessoa> getPessoaById(@PathVariable Long id) {
-        Optional<Pessoa> pessoa = pessoaService.findById(id);
-        return pessoa.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Pessoa> buscarPessoaPorId(@PathVariable Long id) {
+        Optional<Pessoa> pessoa = pessoaService.buscarPorId(id);
+        return pessoa.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public ResponseEntity<List<Pessoa>> getAllPessoas() {
-        List<Pessoa> pessoas = pessoaService.findAll();
+    public ResponseEntity<List<Pessoa>> listarPessoas() {
+        List<Pessoa> pessoas = pessoaService.buscarTodas();
         return ResponseEntity.ok(pessoas);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Pessoa> updatePessoa(@PathVariable Long id, @RequestBody Pessoa pessoaDetails) {
-        Optional<Pessoa> optionalPessoa = pessoaService.findById(id);
-        if (optionalPessoa.isPresent()) {
-            Pessoa existingPessoa = optionalPessoa.get();
-            existingPessoa.setNome(pessoaDetails.getNome());
-            existingPessoa.setCPF(pessoaDetails.getCPF());
-            existingPessoa.setEmail(pessoaDetails.getEmail());
-            existingPessoa.setTelefone(pessoaDetails.getTelefone());
-            Pessoa updatedPessoa = pessoaService.save(existingPessoa);
-            return ResponseEntity.ok(updatedPessoa);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePessoa(@PathVariable Long id) {
-        if (pessoaService.findById(id).isPresent()) {
-            pessoaService.deleteById(id);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> excluirPessoa(@PathVariable Long id) {
+        pessoaService.excluir(id);
+        return ResponseEntity.noContent().build();
     }
 }

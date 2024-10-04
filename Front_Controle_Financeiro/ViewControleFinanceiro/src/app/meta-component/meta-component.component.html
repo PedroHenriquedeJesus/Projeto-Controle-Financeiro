@@ -1,25 +1,27 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 600px;">
-  <form>
-    <p-card header="Cadastro De Metas" [style]="{width:'700px', height: '450px'}">
-
-      <div style="margin-top: 40px">
-      <p-floatLabel>
-        <textarea pInputTextarea id="descricao" rows="3" style="height: 118px; width: 652px;"></textarea>
-        <label for="descricao">Descrição</label>
-      </p-floatLabel>
-      </div>
-
-        <div style="margin-top: 40px">
-      <p-floatLabel>
-        <input pInputText id="valor" type="number" />
-        <label for="valor">Valor</label>
-      </p-floatLabel>
+<div style="display: flex; justify-content: center; align-items: center; height: auto;">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <p-card header="Cadastro De Metas" [ngClass]="{'error-card': form.submitted && !form.valid}" [style]="{width:'700px'}">
+      <div class="p-fluid p-card-body">
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !descricao}">
+          <p-floatLabel>
+            <textarea pInputTextarea id="descricao" rows="3" [(ngModel)]="descricao" name="descricao" required style="height: 118px; width: 652px;"></textarea>
+            <label for="descricao">Descrição</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !descricao" class="p-error">Descrição é obrigatória</small>
         </div>
 
-      <div style="margin-top: 40px;">
-        <p-button label="Salvar" />
-      </div>
+        <div class="p-field" [ngClass]="{'p-invalid': form.submitted && !valor}" style="margin-top: 40px">
+          <p-floatLabel>
+            <input pInputText id="valor" type="number" [(ngModel)]="valor" name="valor" required />
+            <label for="valor">Valor</label>
+          </p-floatLabel>
+          <small *ngIf="form.submitted && !valor" class="p-error">Valor é obrigatório</small>
+        </div>
 
+        <div class="p-field" style="margin-top: 40px;">
+          <p-button label="Salvar" type="submit"></p-button>
+        </div>
+      </div>
     </p-card>
-    </form>
-</div >
+  </form>
+</div>
