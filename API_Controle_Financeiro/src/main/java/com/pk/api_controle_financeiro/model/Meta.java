@@ -10,14 +10,14 @@ public class Meta {
     private Long id;
 
     @Column(nullable = false, length = 50)
-    private String tipo;
+    private String descricao;
 
     @Column(nullable = false)
     private Double valor;
 
-    public Meta(Long id, String tipo, Double valor) {
+    public Meta(Long id, String descricao, Double valor) {
         this.id = id;
-        this.tipo = tipo;
+        this.descricao = descricao;
         this.valor = valor;
     }
 
@@ -32,12 +32,12 @@ public class Meta {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getdescricao() {
+        return descricao;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setdescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Double getValor() {
@@ -52,7 +52,7 @@ public class Meta {
     public String toString() {
         return "Meta{" +
                 "id=" + id +
-                ", tipo='" + tipo + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", valor=" + valor +
                 '}';
     }
